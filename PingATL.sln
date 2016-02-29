@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PingAtlServer", "PingAtlServer\PingAtlServer.vcxproj", "{A4FA6F2C-502F-472A-A765-02FD9C809779}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PingAtlServerPS", "PingAtlServer\PingAtlServerPS.vcxproj", "{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A4FA6F2C-502F-472A-A765-02FD9C809779} = {A4FA6F2C-502F-472A-A765-02FD9C809779}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Debug|x64.ActiveCfg = Debug|x64
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Debug|x64.Build.0 = Debug|x64
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Debug|x86.ActiveCfg = Debug|Win32
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Debug|x86.Build.0 = Debug|Win32
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Release|x64.ActiveCfg = Release|x64
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Release|x64.Build.0 = Release|x64
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Release|x86.ActiveCfg = Release|Win32
+		{A4FA6F2C-502F-472A-A765-02FD9C809779}.Release|x86.Build.0 = Release|Win32
+		{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}.Debug|x64.ActiveCfg = Debug|x64
+		{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}.Debug|x86.ActiveCfg = Debug|Win32
+		{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}.Release|x64.ActiveCfg = Release|x64
+		{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}.Release|x86.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

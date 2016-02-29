@@ -1,0 +1,18 @@
+// PingAtlServer.idl : IDL source for PingAtlServer
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PingAtlServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(A6DC19E1-9445-44A2-9306-87C451B95BB8),
+	version(1.0),
+]
+library PingAtlServerLib
+{
+	importlib("stdole2.tlb");
+};
+
