@@ -28,6 +28,9 @@
     <ClCompile Include="PingAtlServer_i.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="PingServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -42,6 +45,9 @@
     <ClInclude Include="PingAtlServer_i.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="PingServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PingAtlServer.rc">
@@ -53,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PingAtlServer.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="PingServer.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

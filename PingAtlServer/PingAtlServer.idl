@@ -8,11 +8,29 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
+	object,
+	uuid(C3C38ECD-6377-4560-9D48-D9E493728F77),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPingable : IDispatch{
+	[id(1)] HRESULT Initialize();
+	[id(2)] HRESULT Ping([in] SHORT pingCode, [out] SHORT* statusCode);
+};
+[
 	uuid(A6DC19E1-9445-44A2-9306-87C451B95BB8),
 	version(1.0),
 ]
 library PingAtlServerLib
 {
 	importlib("stdole2.tlb");
+	[
+		uuid(5819432D-806B-42C1-97DE-DE5A015A8497)
+	]
+	coclass CoPingEngine
+	{
+		[default] interface IPingable;
+	};
 };
 

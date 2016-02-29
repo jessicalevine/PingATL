@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {5819432D-806B-42C1-97DE-DE5A015A8497} = s 'CoPingEngine Class'
+		{
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{A6DC19E1-9445-44A2-9306-87C451B95BB8}'
+			Version = s '1.0'
+		}
+	}
+}
