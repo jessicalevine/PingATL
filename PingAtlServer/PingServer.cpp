@@ -10,15 +10,19 @@
 
 STDMETHODIMP CPingServer::Initialize()
 {
-	// TODO: Add your implementation code here
-
+	printf("CoPingEngine initialized\n");
 	return S_OK;
 }
 
 
 STDMETHODIMP CPingServer::Ping(SHORT pingCode, SHORT* statusCode)
 {
-	// TODO: Add your implementation code here
+	if (pingCode == 12345) {
+		*statusCode = 200;
+	}
+	else {
+		*statusCode = 401;
+	}
 
 	return S_OK;
 }
