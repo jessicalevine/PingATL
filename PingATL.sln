@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PingAtlServerPS", "PingAtlS
 		{A4FA6F2C-502F-472A-A765-02FD9C809779} = {A4FA6F2C-502F-472A-A765-02FD9C809779}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PingAtlCli", "PingAtlCli\PingAtlCli.vcxproj", "{0F5E7C4E-5890-4A0D-808D-A03486B02714}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -30,6 +32,14 @@ Global
 		{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}.Debug|x86.ActiveCfg = Debug|Win32
 		{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}.Release|x64.ActiveCfg = Release|x64
 		{B61C51A1-C6CF-4BF5-90E3-04EDF3A4BD4A}.Release|x86.ActiveCfg = Release|Win32
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Debug|x64.ActiveCfg = Debug|x64
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Debug|x64.Build.0 = Debug|x64
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Debug|x86.ActiveCfg = Debug|Win32
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Debug|x86.Build.0 = Debug|Win32
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Release|x64.ActiveCfg = Release|x64
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Release|x64.Build.0 = Release|x64
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Release|x86.ActiveCfg = Release|Win32
+		{0F5E7C4E-5890-4A0D-808D-A03486B02714}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
