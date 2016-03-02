@@ -1,5 +1,13 @@
 HKCR
 {
+	CoPingEngine.1 = s 'CoPingEngine Class'
+	{
+		CLSID = s '{5819432D-806B-42C1-97DE-DE5A015A8497}'
+	}
+	CoPingEngine = s 'CoPingEngine Class'
+	{
+		CurVer = s 'CoPingEngine.1'
+	}
 	NoRemove CLSID
 	{
 		ForceRemove {5819432D-806B-42C1-97DE-DE5A015A8497} = s 'CoPingEngine Class'
