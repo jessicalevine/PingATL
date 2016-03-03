@@ -16,7 +16,7 @@ import "ocidl.idl";
 ]
 interface IPingable : IDispatch{
 	[id(1)] HRESULT Initialize();
-	[id(2)] HRESULT Ping([in] SHORT pingCode, [out] SHORT* statusCode);
+	[id(2)] HRESULT Ping([in] SHORT pingCode, [out, retval] SHORT* statusCode);
 };
 [
 	uuid(A6DC19E1-9445-44A2-9306-87C451B95BB8),
