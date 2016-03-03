@@ -16,12 +16,13 @@ import "ocidl.idl";
 ]
 interface IPingable : IDispatch{
 	[id(1)] HRESULT Initialize();
-	[id(2)] HRESULT Ping([in] SHORT pingCode, [out, retval] SHORT* statusCode);
+	[id(2)] HRESULT Ping([in] SHORT pingCode, [out, retval] struct StatusResponse* statusCode);
 };
 [
 	uuid(A6DC19E1-9445-44A2-9306-87C451B95BB8),
 	version(1.0),
 ]
+
 library PingAtlServerLib
 {
 	importlib("stdole2.tlb");
@@ -32,5 +33,16 @@ library PingAtlServerLib
 	{
 		[default] interface IPingable;
 	};
+
+	typedef
+	[
+		uuid(C57FD411-8F1E-44E3-8707-858D55746F45),
+		version(1.0),
+		helpstring("A response representing the status of a server")
+	]
+	struct StatusResponse {
+		[helpstring("Written description of the status")] BSTR Description;
+		[helpstring("HTTP code representing the status")] short Code;
+	} StatusResponse;
 };
 

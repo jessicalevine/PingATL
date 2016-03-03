@@ -55,7 +55,7 @@ public:
 
 
 	STDMETHOD(Initialize)();
-	STDMETHOD(Ping)(SHORT pingCode, SHORT* statusCode);
+	STDMETHOD(Ping)(SHORT pingCode, StatusResponse* statusCode);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CoPingEngine), CPingServer)

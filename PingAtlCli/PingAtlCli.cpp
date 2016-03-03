@@ -31,6 +31,7 @@ void DisplayStatus(wchar_t *pwszMsg, HRESULT hr)
 	LocalFree(pwszStatus);
 }
 
+
 int main() {
 	HRESULT hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
 	if (SUCCEEDED(hr)) {
@@ -39,14 +40,15 @@ int main() {
 		if (SUCCEEDED(hr)) {
 			ptrPingable->Initialize();
 
-			SHORT statusCode;
-			ptrPingable->Ping(12345, &statusCode);
-			std::cout << "Status code for ping code 12345: " << statusCode << std::endl;
-			ptrPingable->Ping(777, &statusCode);
-			std::cout << "Status code for ping code 777: " << statusCode << std::endl;
-			ptrPingable->Ping(1800, &statusCode);
-			std::cout << "Status code for ping code 1800: " << statusCode << std::endl;
+			StatusResponse status;
+			ptrPingable->Ping(12345, &status);
+			printf("Status for ping code 12345: %d %S\n", status.Code, status.Description);
+			ptrPingable->Ping(777, &status);
+			printf("Status for ping code 777: %d %S\n", status.Code, status.Description);
+			ptrPingable->Ping(1800, &status);
+			printf("Status for ping code 1800: %d %S\n", status.Code, status.Description);
 
+			SysFreeString(status.Description);
 			ptrPingable->Release();
 		}
 		else {

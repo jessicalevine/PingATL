@@ -15,13 +15,15 @@ STDMETHODIMP CPingServer::Initialize()
 }
 
 
-STDMETHODIMP CPingServer::Ping(SHORT pingCode, SHORT* statusCode)
+STDMETHODIMP CPingServer::Ping(SHORT pingCode, StatusResponse* status)
 {
 	if (pingCode == 12345) {
-		*statusCode = 200;
+		status->Description = SysAllocString(TEXT("OK"));
+		status->Code = 200;
 	}
 	else {
-		*statusCode = 401;
+		status->Description = SysAllocString(TEXT("Unauthorized"));
+		status->Code = 401;
 	}
 
 	return S_OK;
