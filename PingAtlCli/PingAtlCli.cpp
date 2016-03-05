@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <atlsafe.h>
 
 void DisplayStatus(wchar_t *pwszMsg, HRESULT hr)
 {
@@ -47,6 +48,30 @@ int main() {
 			printf("Status for ping code 777: %d %S\n", status.Code, status.Description);
 			ptrPingable->Ping(1800, &status);
 			printf("Status for ping code 1800: %d %S\n", status.Code, status.Description);
+
+			CComVariant history;
+			hr = ptrPingable->RetrieveHistory(&history);
+
+			if (SUCCEEDED(hr)) {
+				if (history.vt == (VT_ARRAY | VT_I2)) {
+					printf("Ping code history for server: ");
+
+					CComSafeArray<SHORT> codes = history.parray;
+
+					int codeCount = codes.GetCount();
+					for (int i = 0; i < codeCount; i++) {
+						printf("%hd ", codes[i]);
+					}
+					printf("\n");
+					codes.Destroy();
+				}
+				else {
+					printf("Incorrect variant type\n");
+				}
+			}
+			else {
+				DisplayStatus(TEXT("RetrieveHistory failed: "), hr);
+			}
 
 			SysFreeString(status.Description);
 			ptrPingable->Release();

@@ -17,12 +17,13 @@ import "ocidl.idl";
 interface IPingable : IDispatch{
 	[id(1)] HRESULT Initialize();
 	[id(2)] HRESULT Ping([in] SHORT pingCode, [out, retval] struct StatusResponse* statusCode);
+	[id(3)] HRESULT RetrieveHistory([out, retval] VARIANT * pingHistory);
 };
+
 [
 	uuid(A6DC19E1-9445-44A2-9306-87C451B95BB8),
 	version(1.0),
 ]
-
 library PingAtlServerLib
 {
 	importlib("stdole2.tlb");

@@ -2,7 +2,7 @@
 
 #pragma once
 #include "resource.h"       // main symbols
-
+#include <atlsafe.h>
 
 
 #include "PingAtlServer_i.h"
@@ -24,9 +24,8 @@ class ATL_NO_VTABLE CPingServer :
 	public IDispatchImpl<IPingable, &IID_IPingable, &LIBID_PingAtlServerLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
 public:
-	CPingServer()
-	{
-	}
+	CPingServer();
+	~CPingServer();
 
 DECLARE_REGISTRY_RESOURCEID(IDR_PINGSERVER)
 
@@ -51,11 +50,17 @@ END_COM_MAP()
 	}
 
 public:
-
-
+	// NOTE: This would be more intelligently stored as a linked list, but I'm
+	// using this to learn SAFEARRAY and CComSafeArray
+	CComSafeArray<SHORT> m_asiReceivedCodes;
+	LONG m_lHistoryIndex;
 
 	STDMETHOD(Initialize)();
 	STDMETHOD(Ping)(SHORT pingCode, StatusResponse* statusCode);
+	STDMETHOD(RetrieveHistory)(VARIANT * pingHistory);
+private:
+	void RecordPing(SHORT pingCode);
 };
+
 
 OBJECT_ENTRY_AUTO(__uuidof(CoPingEngine), CPingServer)
