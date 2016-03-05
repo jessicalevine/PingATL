@@ -32,6 +32,25 @@ void DisplayStatus(wchar_t *pwszMsg, HRESULT hr)
 	LocalFree(pwszStatus);
 }
 
+void printHistory(CComVariant history) {
+	if (history.vt == (VT_ARRAY | VT_I2)) {
+		printf("Ping code history for server: ");
+
+		CComSafeArray<SHORT> codes = history.parray;
+
+		int codeCount = codes.GetCount();
+		for (int i = 0; i < codeCount; i++) {
+			printf("%hd ", codes[i]);
+		}
+		printf("\n");
+
+		codes.Destroy();
+	}
+	else {
+		printf("Incorrect variant type\n");
+	}
+}
+
 
 int main() {
 	HRESULT hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
@@ -53,24 +72,25 @@ int main() {
 			hr = ptrPingable->RetrieveHistory(&history);
 
 			if (SUCCEEDED(hr)) {
-				if (history.vt == (VT_ARRAY | VT_I2)) {
-					printf("Ping code history for server: ");
-
-					CComSafeArray<SHORT> codes = history.parray;
-
-					int codeCount = codes.GetCount();
-					for (int i = 0; i < codeCount; i++) {
-						printf("%hd ", codes[i]);
-					}
-					printf("\n");
-					codes.Destroy();
-				}
-				else {
-					printf("Incorrect variant type\n");
-				}
+				printHistory(history);
 			}
 			else {
-				DisplayStatus(TEXT("RetrieveHistory failed: "), hr);
+				DisplayStatus(TEXT("RetrieveHistory failed: \n"), hr);
+			}
+
+			// Try creating a larger history
+			printf("Sending more pings...\n");
+			for (int i = 0; i < 16; i++) {
+				ptrPingable->Ping(i, &status);
+			}
+
+			hr = ptrPingable->RetrieveHistory(&history);
+
+			if (SUCCEEDED(hr)) {
+				printHistory(history);
+			}
+			else {
+				DisplayStatus(TEXT("RetrieveHistory failed: \n"), hr);
 			}
 
 			SysFreeString(status.Description);
